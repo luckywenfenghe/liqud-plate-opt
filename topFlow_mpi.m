@@ -460,34 +460,6 @@ run('postproc.m');
 if exist('exportdxf','var') && exportdxf
     run('export.m');
 end
-
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% This code was initial written by: Joe Alexandersen                      %
-%                           Department of Mechanical and                  %
-%                                         Electrical Engineering          %
-%                           University of Southern Denmark                %
-%                           DK-5230 Odense M, Denmark.                    % 
-% Parallel Computing enhanced by: https://github.com/luckywenfenghe       %
-% Features:                                                               %
-% - Parallel Computing using MATLAB Parallel Computing Toolbox           %
-% - Element-Level Parallelization with parfor loops                       %
-% - Adaptive Move-Limit via Trust-Region MMA                              %
-% - Automatic β-Projection Continuation                                   %
-% - Optimized for Thermal Problems (Problem Type 3)                       %
-%                                                                         %
-% Please send your comments and questions to: joal@sdu.dk                 %
-%                                                                         %
-% The code is intended for educational purposes and theoretical details   %
-% are discussed in the paper: "A detailed introduction to density-based   %
-% topology optimisation of fluid flow problems including implementation   %
-% in MATLAB", J. Alexandersen, SMO 2022, doi:                             %                          
-%                                                                         %
-% Disclaimer:                                                             %
-% The author does not guarantee that the code is free from errors.        %
-% Furthermore, the author shall not be liable in any event caused by the  %
-% use of the program.                                                     %      
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% EXPLICIT DENSITY FILTERING FUNCTIONS (Sigmund 2007)
 function [H, Hs] = filter_setup(nelx, nely, rmin)
 % Standard density filter setup with linear weight decay
@@ -520,3 +492,30 @@ function sens_flt = sensitivity_filter(sens, H, Hs)
     sens_flt = (H * sens(:)) ./ Hs;
     sens_flt = reshape(sens_flt, size(sens));
 end 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This code was initial written by: Joe Alexandersen                      %
+%                           Department of Mechanical and                  %
+%                                         Electrical Engineering          %
+%                           University of Southern Denmark                %
+%                           DK-5230 Odense M, Denmark.                    % 
+% Parallel Computing enhanced by: https://github.com/luckywenfenghe       %
+% Features:                                                               %
+% - Parallel Computing using MATLAB Parallel Computing Toolbox           %
+% - Element-Level Parallelization with parfor loops                       %
+% - Adaptive Move-Limit via Trust-Region MMA                              %
+% - Automatic β-Projection Continuation                                   %
+% - Optimized for Thermal Problems (Problem Type 3)                       %
+%                                                                         %
+% Please send your comments and questions to: joal@sdu.dk                 %
+%                                                                         %
+% The code is intended for educational purposes and theoretical details   %
+% are discussed in the paper: "A detailed introduction to density-based   %
+% topology optimisation of fluid flow problems including implementation   %
+% in MATLAB", J. Alexandersen, SMO 2022, doi:                             %                          
+%                                                                         %
+% Disclaimer:                                                             %
+% The author does not guarantee that the code is free from errors.        %
+% Furthermore, the author shall not be liable in any event caused by the  %
+% use of the program.                                                     %      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
